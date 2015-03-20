@@ -23,23 +23,7 @@
     {% endblock %}
   </head>
   <body>
-    <!-- HIDDEN PANEL 
-    ================================================== -->
-    <div id="panel">
-      <div class="row">
-        <div class="twelve columns">
-          <img src="{{ SITEURL }}/theme/images/info.png" class="pics" alt="info">
-          <div class="infotext">
-            Thank you for visiting my theme! Replace this with your message to visitors.
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="slide">
-    <a href="#" class="btn-slide"></a>
-    </p>
-    <!-- HEADER
-    ================================================== -->
+    {# HEADER #}
     <div class="row">
       <div class="four columns">
         <div class="logo">
@@ -54,8 +38,7 @@
           <li class="current">
           <a href="index.html">Home</a>
           <ul>
-
-            <li><a href="index2.html">Without slider</a></li>
+            <li><a href="home.html">Without slider</a></li>
           </ul>
           </li>
           <li>
@@ -98,34 +81,31 @@
         </nav>
       </div>
     </div>
-    <div class="clear">
-    </div>
+    <div class="clear"></div>
+
     <!-- SUBHEADER
     ================================================== -->
     <div id="subheader">
       <div class="row">
         <div class="twelve columns">
-          <p class="left">
-          ABOUT US
-          </p>
-          <p class="right">
-          Meet Our Team
-          </p>
+          {% block subheader %}
+            <p class="left">
+              TESTO SINISTRA
+            </p>
+            <p class="right">
+              TESTO DESTRA
+            </p>
+          {% endblock %}
         </div>
       </div>
     </div>
-    <div class="hr">
-    </div>
+    <div class="hr"></div>
+
     <!-- CONTENT 
     ================================================== -->
-    <div class="row">
-      {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
+    <div class="hr"></div>
 
-
-
-    </div>
-    <div class="hr">
-    </div>
     <!-- TWITTER
     ================================================== -->
     <div class="tweetarea">
@@ -138,6 +118,7 @@
         </div>
       </div>
     </div>
+
     <!-- FOOOTER 
     ================================================== -->
     <div id="footer">
@@ -190,9 +171,8 @@
         </div>
       </div>
     </div>
-    <!-- JAVASCRIPTS 
-    ================================================== -->
-    <!-- Javascript files placed here for faster loading -->
+
+    {% block javascripts %}
     <script src="{{ SITEURL }}/theme/js/foundation.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/formvalidation.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery.cycle.js"></script>
@@ -205,5 +185,7 @@
     <script src="{{ SITEURL }}/theme/js/responsivemenu.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery.tweet.js"></script>
     <script src="{{ SITEURL }}/theme/js/twitterusername.js"></script>
+    {% endblock %}
+
   </body>
 </html>
