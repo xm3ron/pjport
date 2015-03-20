@@ -26,6 +26,7 @@
 {% block content %}
   <div class="row">
     <div class="twelve columns noleftmargin">
+
       <!-- MAIN CONTENT -->
       <div class="eight columns noleftmargin">
         {% for article in articles_page.object_list %}
@@ -39,67 +40,28 @@
         {% endfor %}
         <br/>
         {% include 'pagination.html' %}
-
-
-
       </div>
+
       <!-- SIDEBAR -->
       <div class="four columns">
-        <h6 class="sidebartitle">RECENT COMMENTS</h6>
-        <div class="avatar">
-          <img src="images/temp/author1.png" alt="">
-        </div>
-        <p>
-          Many pieces were proposed, but none seemed suitable, because each one wished to play a good ...
-        </p>
-        <div class="avatar">
-          <img src="images/temp/author2.png" alt="">
-        </div>
-        <p>
-          Many pieces were proposed, but none seemed suitable, because each one wished to play a good ...
-        </p>
-        <div class="avatar">
-          <img src="images/temp/author3.png" alt="">
-        </div>
-        <p>
-          Many pieces were proposed, but none seemed suitable, because each one wished to play a good ...
-        </p>
-        <br class="clear"/>
-        <h6 class="sidebartitle">POPULAR TAGS</h6>
-        <a href="#" class="tags">Photography</a>
-        <a href="#" class="tags">Vintage</a>
-        <a href="#" class="tags">Nature</a>
-        <a href="#" class="tags">Design</a>
-        <a href="#" class="tags">Printing</a>
-        <a href="#" class="tags">Contemporary</a>
-        <a href="#" class="tags">Classic</a>
-        <a href="#" class="tags">Elegant</a>
-        <a href="#" class="tags">Graphics</a>
-        <br class="clear"/>
-        <br/><br/>
-        <h6 class="sidebartitle">POPULAR POSTS</h6>
-        <p>
-          7 Oct 2013
-        </p>
-        <p>
-          Many pieces were proposed, but none seemed suitable, because each one wished to play a good and suitable part ...
-        </p>
-        <p>
-          6 Sept 2013
-        </p>
-        <p>
-          It was ready for production, when through accident we were disappointed about securing the private theatre on ...
-        </p>
-        <p>
-          4 Aug 2013
-        </p>
-        <p>
-          The over-kind praise which it won encouraged me to have the play printed. I decided, as I could see no other prospects...
-        </p>
+
+        {% if categories %}
+          <h6 class="sidebartitle">CATEGORIE</h6>
+          {% for category, articles in categories %}
+            <a href="{{ SITEURL }}/{{ category.url }}" class="tags">{{ category }}</a>
+          {% endfor %}
+          <br class="clear"/>
+        {% endif %}
+
+        {% if tag_cloud %}
+          <h6 class="sidebartitle">TAGS</h6>
+          {% for tag in tag_cloud %}
+            <a href="{{ SITEURL }}/{{ tag.0.url }}" class="tags">{{ tag.0 }}</a>
+          {% endfor %}
+          <br class="clear"/>
+        {% endif %}
+
       </div>
     </div>
   </div>
-
-
-
 {% endblock %}
