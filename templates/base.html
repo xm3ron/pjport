@@ -35,48 +35,24 @@
       <div class="eight columns noleftmarg">
         <nav id="nav-wrap">
         <ul class="nav-bar sf-menu">
-          <li class="current">
-          <a href="index.html">Home</a>
-          <ul>
-            <li><a href="home.html">Without slider</a></li>
-          </ul>
-          </li>
-          <li>
-          <a href="#">Portofolio</a>
-          <ul>
-            <li><a href="portofolio2.html">2 Columns</a></li>
-            <li><a href="portofolio3.html">3 Columns</a></li>
-            <li><a href="portofolio4.html">4 Columns</a></li>				
-            <li><a href="portofoliodetail.html">Project Details</a></li>
-          </ul>
-          </li>
-          <li>
-          <a href="#">Blog</a>
-          <ul>
-            <li><a href="blogpage1.html">Blog page style 1</a></li>
-            <li><a href="blogpage2.html">Blog page style 2</a></li>
-            <li><a href="blogpage3.html">Blog page style 3</a></li>
-            <li><a href="blogsinglepost.html">Single post</a></li>
-          </ul>
-          </li>
-          <li>
-          <a href="#">Pages</a>
-          <ul>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="services.html">Services</a></li>				
-          </ul>
-          </li>
-          <li>
-          <a href="#">Features</a>
-          <ul>
-            <li><a href="columns.html">Columns</a></li>
-            <li><a href="elements.html">Elements</a></li>
-            <li><a href="typography.html">Typography</a></li>
-          </ul>
-          </li>
-          <li>
-          <a href="contact.html">Contact</a>
-          </li>
+          {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in PAGES %}
+              <li{% if p == page %} class="current"{% endif %}>
+                <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+              </li>
+            {% endfor %}
+          {% else %}
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+              {% for cat, null in categories %}
+                <li{% if cat == category %} class="current"{% endif %}>
+                  <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endif %}
         </ul>
         </nav>
       </div>
