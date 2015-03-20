@@ -12,10 +12,13 @@
     <meta charset="utf-8"/>
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width"/>
-    <!-- Included CSS Files-->
+
+    {% block stylesheets %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/skins/teal.css"><!-- skin color -->
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/responsive.css">
+    {% endblock %}
+
     <!-- IE Fix for HTML5 Tags -->
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -63,16 +66,16 @@
     ================================================== -->
     <div id="subheader">
       <div class="row">
-        <div class="twelve columns">
           {% block subheader %}
+            <div class="twelve columns">
             <p class="left">
               TESTO SINISTRA
             </p>
             <p class="right">
               TESTO DESTRA
             </p>
+            </div>
           {% endblock %}
-        </div>
       </div>
     </div>
     <div class="hr"></div>
