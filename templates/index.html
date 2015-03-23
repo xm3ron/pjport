@@ -35,11 +35,11 @@
           </div>
           <h4>{{ article.title }} {# <span class="comments">3 comments</span> #}</h4>
           <div class="dots blogdots"></div>
-          {{ article.summary }}
+          {{ article.summary }} <a href="{{ SITEURL }}/{{ article.url }}">Leggi</a>
           <div class="hr"></div>
         {% endfor %}
         <br/>
-        {% include 'pagination.html' %}
+        {% include '_pagination.html' %}
       </div>
 
       <!-- SIDEBAR -->
