@@ -32,10 +32,6 @@
         <p>
         <i>Pubblicato il <b>{{ article.date.strftime("%Y-%m-%d") }}</b> in <a href="{{ article.category.url }}">{{ article.category }}</a></i>
         </p>
-
-
-
-
         <p>
           <img src="images/temp/post.jpg" class="blogimage grayscale" alt="">
         </p>
@@ -60,26 +56,21 @@
           </div>
           <h5 class="left">AUTORE: {{ article.author }} </h5>
           <div class="right">
-            <div class="social facebook">
-              <a href="#"></a>
-            </div>
-            <div class="social twitter">
-              <a href="#"></a>
-            </div>
-            <div class="social deviantart">
-              <a href="#"></a>
-            </div>
-            <div class="social flickr">
-              <a href="#"></a>
-            </div>
-            <div class="social dribbble">
-              <a href="#"></a>
-            </div>
+            {% for title, url in SOCIAL %}
+              <a href="{{ url }}" target="_blank">
+                <div class="social {{ title }}">
+                </div>
+              </a>
+            {% endfor %}
           </div>
           <p class="clear authortext">
+            {#
             Jane is a professional photographer working for SLC. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum. <a href="#">Browse more articles</a> by this author.<br/>
+             #}
           </p>
         </div>
+
+        {#
         <h5>1 Comment</h5>
         <hr>
         <div class="gravatar">
@@ -90,7 +81,6 @@
 				- October 26, 2013 at 9:39 am
 			</span>
         </h5>
-
         <p>
           But she cuddled in bed with one knee up to her neck in cute boyish fashion, laughing softly at the remembrance of another time when she had popped a cigarette stump into the eye of a London bobby from the top of a bus.  Temporibus autem quibusdam.
         </p>
@@ -101,10 +91,13 @@
         <input type="text" class="five smoothborder" placeholder="Website"/>
         <textarea class="six smoothborder" rows="7" placeholder="Comments *"></textarea>
         <button type="submit" class="readmore">Publish</button>
+         #}
       </div>
+
 
       <!-- SIDEBAR -->
       <div class="four columns">
+      {#
         <h6 class="sidebartitle">RECENT COMMENTS</h6>
         <div class="avatar">
           <img src="images/temp/author1.png" alt="">
@@ -125,6 +118,8 @@
           Many pieces were proposed, but none seemed suitable, because each one wished to play a good ...
         </p>
         <br class="clear"/>
+
+       #}
         {% if categories %}
           <h6 class="sidebartitle">CATEGORIE</h6>
           {% for category, articles in categories %}
@@ -141,6 +136,8 @@
           <br class="clear"/>
         {% endif %}
         <br/><br/>
+
+
         <h6 class="sidebartitle">RELATED POSTS</h6>
         <p>
           7 Oct 2013
