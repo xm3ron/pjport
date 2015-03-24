@@ -22,7 +22,8 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-  <a href="{{ SITEURL }}/blog_index.html">Blog</a>
+  Sei qui:
+  <a href="{{ SITEURL }}/blog_index.html">Blog</a> /
   <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category|capitalize }}</a> /
   {{ article.title }}
 {% endblock %}

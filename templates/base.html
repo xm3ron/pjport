@@ -39,7 +39,7 @@
         <nav id="nav-wrap">
         <ul class="nav-bar sf-menu">
           {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
+            <li class="active"><a href="{{ link }}">{{ title }}</a></li>
           {% endfor %}
           {% if DISPLAY_PAGES_ON_MENU %}
             {% for p in PAGES %}
@@ -69,7 +69,7 @@
       <div class="row">
         {% block subheader %}
           <div class="twelve columns">
-            <p class="left">Sei qui: {% block breadcrumbs %}{% endblock %}</p>
+            <p class="left">{% block breadcrumbs %}{% endblock %}</p>
             <p class="right">{% block subheader_right %}{% endblock %}</p>
           </div>
         {% endblock %}

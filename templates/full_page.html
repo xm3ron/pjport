@@ -1,0 +1,13 @@
+{% extends "page.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block breadcrumbs %}
+  {{ page.title|upper }}
+{% endblock %}
+
+{% block content %}
+  {% import 'translations.html' as translations with context %}
+  {{ translations.translations_for(page) }}
+  {{ page.content }}
+{% endblock %}
