@@ -21,17 +21,10 @@
 
 {% endblock %}
 
-{% block subheader %}
-  <div class="eight columns">
-    <p class="bread leftalign">
-      Sei qui:
-      <a href="{{ SITEURL }}"> Home</a> /
-      <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category|capitalize }}</a> /
-      {{ article.title }}
-    </p>
-  </div>
-  <div class="four columns">
-  </div>
+{% block breadcrumbs %}
+  <a href="{{ SITEURL }}/blog_index.html">Blog</a>
+  <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category|capitalize }}</a> /
+  {{ article.title }}
 {% endblock %}
 
 {% block content %}
@@ -92,9 +85,9 @@
           {% if loop.first %}
           <h6 class="sidebartitle">POST CORRELATI</h6>
           {% endif %}
-          <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}">
+          <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}" style="color: inherit;">
             <p>{{ item.date.strftime("%d %b %Y") }}</p>
-            <p>{{ item.summary }}...</p>
+            <p>{{ item.summary }}</p>
           </a>
         {% endfor %}
       </div>

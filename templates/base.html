@@ -62,26 +62,24 @@
     </div>
     <div class="clear"></div>
 
-    <!-- SUBHEADER
-    ================================================== -->
+    {# ######### #}
+    {# SUBHEADER #}
+    {# ######### #}
     <div id="subheader">
       <div class="row">
-          {% block subheader %}
-            <div class="twelve columns">
-            <p class="left">
-              TESTO SINISTRA
-            </p>
-            <p class="right">
-              TESTO DESTRA
-            </p>
-            </div>
-          {% endblock %}
+        {% block subheader %}
+          <div class="twelve columns">
+            <p class="left">Sei qui: {% block breadcrumbs %}{% endblock %}</p>
+            <p class="right">{% block subheader_right %}{% endblock %}</p>
+          </div>
+        {% endblock %}
       </div>
     </div>
     <div class="hr"></div>
 
-    <!-- CONTENT 
-    ================================================== -->
+    {# ####### #}
+    {# CONTENT #}
+    {# ####### #}
     {% block content %}{% endblock %}
     <div class="hr"></div>
 

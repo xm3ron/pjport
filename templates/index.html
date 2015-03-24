@@ -5,22 +5,8 @@
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css"><!-- blog stylesheet -->
 {% endblock %}
 
-{% block subheader %}
-  <div class="eight columns">
-    <p class="bread leftalign">
-      Sei qui: <a href="{{ SITEURL }}"> Home</a> / <a href="{{ SITEURL }}/blog_index.html">Blog</a>
-    </p>
-  </div>
-  <div class="four columns">
-    <div class="row collapse">
-      <div class="ten mobile-three columns">
-        <input type="text" class="nomargin" placeholder="Search...">
-      </div>
-      <div class="two mobile-one columns">
-        <a href="#" class="postfix button expand">Go</a>
-      </div>
-    </div>
-  </div>
+{% block breadcrumbs %}
+  <a href="{{ SITEURL }}/blog_index.html">Blog</a>
 {% endblock %}
 
 {% block content %}
@@ -33,7 +19,7 @@
           <div class="circledate">
             <div class="textcircle">{{ article.locale_date }}</div>
           </div>
-          <h4>{{ article.title }} {# <span class="comments">3 comments</span> #}</h4>
+          <h4><a href="{{ SITEURL }}/{{ article.url }}" title="" style="color: inherit;">{{ article.title }}</a>  <a class="comments" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> {# <span class="comments">3 comments</span> #}</h4>
           <div class="dots blogdots"></div>
           {{ article.summary }} <a href="{{ SITEURL }}/{{ article.url }}">Leggi</a>
           <div class="hr"></div>
