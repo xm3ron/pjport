@@ -15,7 +15,7 @@
 
     {% block stylesheets %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/skins/teal.css"><!-- skin color -->
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/skins/blue.css"><!-- skin color -->
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/responsive.css">
     {% endblock %}
 
@@ -83,7 +83,6 @@
     {% block content %}{% endblock %}
     <div class="hr"></div>
 
-    {#
     <!-- TWITTER
     ================================================== -->
     <div class="tweetarea">
@@ -97,8 +96,6 @@
       </div>
     </div>
 
-     #}
-
     <!-- FOOOTER 
     ================================================== -->
     <div id="footer">
@@ -111,22 +108,13 @@
         Our goal is to keep clients satisfied!
       </div>
       <div class="four columns">
-        <h1>GET SOCIAL</h1>
-        <div class="social facebook">
-          <a href="#"></a>
-        </div>
-        <div class="social twitter">
-          <a href="#"></a>
-        </div>
-        <div class="social deviantart">
-          <a href="#"></a>
-        </div>
-        <div class="social flickr">
-          <a href="#"></a>
-        </div>
-        <div class="social dribbble">
-          <a href="#"></a>
-        </div>
+        <h1>SOCIAL</h1>
+        {% for title, url in SOCIAL %}
+          <a href="{{ url }}" target="_blank">
+            <div class="social {{ title }}">
+            </div>
+          </a>
+        {% endfor %}
       </div>
       <div class="four columns">
         <h1 class="newsmargin">NEWSLETTER</h1>
@@ -166,7 +154,6 @@
     <script src="{{ SITEURL }}/theme/js/jquery.tweet.js"></script>
       {#
     <script src="{{ SITEURL }}/theme/js/twitterusername.js"></script>
-
        #}
     {% endblock %}
 
