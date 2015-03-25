@@ -825,6 +825,11 @@ a:focus { outline: none }
 .deviantart:hover { background: url(../images/socialpack/deviantarta.png) }
 .flickr { background: url(../images/socialpack/flickr.png) }
 .flickr:hover { background: url(../images/socialpack/flickra.png) }
+.linkedin { background: url(../images/socialpack/linkedin_dark.png) }
+.linkedin:hover { background: url(../images/socialpack/linkedin_active.png) }
+.rss { background: url(../images/socialpack/rss_dark.png) }
+.rss:hover { background: url(../images/socialpack/rss_active.png) }
+
 .newsletter { width: 250px !important }
 .back-top-wrapper { width: 100%; position: absolute; overflow: hidden; height: 50px; display: block; }
 .back-top { bottom: 55px; right: 20px; margin-bottom: 0; display: block; position: fixed; display: scroll; display: none; }
