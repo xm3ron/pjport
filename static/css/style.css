@@ -814,6 +814,7 @@ a:focus { outline: none }
 .tweet_time { margin-right: 7px }
 .tweetarea { background: #f8f8f8 url(../images/div.png) repeat-x; margin-top: 20px; }
 .tweettext { padding: 20px 0px; margin-bottom: -37px; }
+
 .social { display: inline-block; cursor: pointer; width: 32px; height: 32px; margin-right: 5px; }
 .facebook { background: url(../images/socialpack/facebook.png) }
 .facebook:hover { background: url(../images/socialpack/facebooka.png) }
