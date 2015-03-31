@@ -2,38 +2,12 @@
 
 {% block title %}{{ page.title }}{% endblock %}
 
-
-
 {% block breadcrumbs %}
   {{ page.title|upper }}
 {% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="eight columns">
-      {% import 'translations.html' as translations with context %}
-      {{ translations.translations_for(page) }}
-      {{ page.content }}
-    </div>
-
-    <div class="four columns">
-      <!-- Free Quote Form-->
-      <h5>Hai un progetto in mente?</h5>
-      <p>Fornisci alcune informazioni preliminari e ti contatterò al più presto.</p>
-      <div class="done">
-        <div class="alert-box success">
-          Il messaggio è stato inviato! <a class="close" href="">x</a>
-        </div>
-      </div>
-      <div class="form">
-        <form id="contactform" action="{{ SITEURL }}/bin/contact.php" method="post">
-          <input type="text" placeholder="Nome *" class="smoothborder" name="name">
-          <input type="text" placeholder="E-mail *" class="smoothborder" name="email">
-          <textarea placeholder="Descrivi il tuo progetto *" rows="6" class="smoothborder" name="comment"></textarea>
-          <input type="submit" value="Invia" class="readmore" id="submit">
-        </form>
-      </div>
-      <br>
-    </div>
-  </div>
+  {% import 'translations.html' as translations with context %}
+  {{ translations.translations_for(page) }}
+  {{ page.content }}
 {% endblock %}

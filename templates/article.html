@@ -1,10 +1,5 @@
 {% extends 'base.html' %}
 
-{% block stylesheets %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css"><!-- blog stylesheet -->
-{% endblock %}
-
 {% block head %}
   {{ super() }}
   {% for keyword in article.keywords %}
@@ -22,77 +17,35 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-  Sei qui:
-  <a href="{{ SITEURL }}/blog_index.html">Blog</a> /
-  <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category|capitalize }}</a> /
-  {{ article.title }}
+  {{ super() }}
+  / <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category|capitalize }}</a>
+  / {{ article.title }}
 {% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="twelve columns noleftmargin">
-      <!-- MAIN CONTENT -->
-      <div class="eight columns">
-        <div class="sectiontitle">
-          <h4>{{ article.title }}</h4>
-          <br>
-        </div>
-        <p>
-        <i>Pubblicato il <b>{{ article.date.strftime("%Y-%m-%d") }}</b> in <a href="{{ article.category.url }}">{{ article.category }}</a></i>
-        </p>
-
-        {{ article.content }}
-
-        <br/>
-        <div class="panel">
-          <div class="avatar">
-            <img src="{{ article.author_gravatar }}" alt="{{ author_gravatar }}">
-          </div>
-          <h5 class="left">AUTORE: {{ article.author }} </h5>
-          <div class="right">
-            {% for title, url in SOCIAL %}
-              <a href="{{ url }}" target="_blank">
-                <div class="social {{ title }}">
-                </div>
-              </a>
-            {% endfor %}
-          </div>
-          <p class="clear authortext">
-          </p>
-        </div>
-      </div>
-
-
-      <!-- SIDEBAR -->
-      <div class="four columns">
-        {% if categories %}
-          <h6 class="sidebartitle">CATEGORIE</h6>
-          {% for category, articles in categories %}
-            <a href="{{ SITEURL }}/{{ category.url }}" class="tags">{{ category }}</a>
-          {% endfor %}
-          <br class="clear"/>
-        {% endif %}
-
-        {% if tag_cloud %}
-          <h6 class="sidebartitle">TAGS</h6>
-          {% for tag in tag_cloud %}
-            <a href="{{ SITEURL }}/{{ tag.0.url }}" class="tags">{{ tag.0 }}</a>
-          {% endfor %}
-          <br class="clear"/>
-        {% endif %}
-        <br/><br/>
-
-        {% for item in articles if item.category == article.category and item != article %}
-          {% if loop.first %}
-          <h6 class="sidebartitle">POST CORRELATI</h6>
-          {% endif %}
-          <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}" style="color: inherit;">
-            <p>{{ item.date.strftime("%d %b %Y") }}</p>
-            <p>{{ item.summary }}</p>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="sectiontitle">
+    <h4>{{ article.title }}</h4>
+    <br>
   </div>
-  <div class="hr"></div>
+  <p>
+    <i>Published on <b>{{ article.date.strftime("%d %B %Y") }}</b> in <a href="{{ article.category.url }}">{{ article.category }}</a></i>
+  </p>
+  {{ article.content }}
+  <br/>
+  <div class="panel">
+    <div class="avatar">
+      <img src="{{ article.author_gravatar }}" alt="{{ author_gravatar }}">
+    </div>
+    <h5 class="left">AUTHOR: {{ article.author }} </h5>
+    <div class="right">
+      {% for title, url in SOCIAL %}
+        <a href="{{ url }}" target="_blank">
+          <div class="social {{ title }}">
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <p class="clear authortext">
+    </p>
+  </div>
 {% endblock %}

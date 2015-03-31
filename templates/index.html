@@ -1,53 +1,17 @@
 {% extends 'base.html' %}
 
-{% block stylesheets %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css"><!-- blog stylesheet -->
-{% endblock %}
-
-{% block breadcrumbs %}
-  <a href="{{ SITEURL }}/blog_index.html">Blog</a>
-{% endblock %}
-
 {% block content %}
-  <div class="row">
-    <div class="twelve columns noleftmargin">
-
-      <!-- MAIN CONTENT -->
-      <div class="eight columns noleftmargin">
-        {% for article in articles_page.object_list %}
-          <div class="circledate">
-            <div class="textcircle">{{ article.locale_date }}</div>
-          </div>
-          <h4><a href="{{ SITEURL }}/{{ article.url }}" title="" style="color: inherit;">{{ article.title }}</a>  <a class="comments" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> {# <span class="comments">3 comments</span> #}</h4>
-          <div class="dots blogdots"></div>
-          {{ article.summary }} <a href="{{ SITEURL }}/{{ article.url }}">Leggi</a>
-          <div class="hr"></div>
-        {% endfor %}
-        <br/>
-        {% include '_pagination.html' %}
-      </div>
-
-      <!-- SIDEBAR -->
-      <div class="four columns">
-
-        {% if categories %}
-          <h6 class="sidebartitle">CATEGORIE</h6>
-          {% for category, articles in categories %}
-            <a href="{{ SITEURL }}/{{ category.url }}" class="tags">{{ category }}</a>
-          {% endfor %}
-          <br class="clear"/>
-        {% endif %}
-
-        {% if tag_cloud %}
-          <h6 class="sidebartitle">TAGS</h6>
-          {% for tag in tag_cloud %}
-            <a href="{{ SITEURL }}/{{ tag.0.url }}" class="tags">{{ tag.0 }}</a>
-          {% endfor %}
-          <br class="clear"/>
-        {% endif %}
-
-      </div>
+  {% for article in articles_page.object_list %}
+    <div class="circledate">
+      <div class="textcircle">{{ article.locale_date }}</div>
     </div>
-  </div>
+    <h4><a href="{{ SITEURL }}/{{ article.url }}" title="" style="color: inherit;">{{ article.title }}</a>  <a class="comments" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> {# <span class="comments">3 comments</span> #}</h4>
+    <div class="dots blogdots"></div>
+    {{ article.summary }}
+    <a href="{{ SITEURL }}/{{ article.url }}" style="float:right;">Read more</a>
+    <br>
+    <div class="hr"></div>
+  {% endfor %}
+  <br/>
+  {% include '_pagination.html' %}
 {% endblock %}

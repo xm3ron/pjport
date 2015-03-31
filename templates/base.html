@@ -5,157 +5,201 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ DEFAULT_LANG }}"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="{{ DEFAULT_LANG }}">
-  <!--<![endif]-->
-  <head>
-    {% block head %}
+<!--<![endif]-->
+<head>
+  {% block head %}
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <meta charset="utf-8"/>
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width"/>
 
     {% block stylesheets %}
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/skins/blue.css"><!-- skin color -->
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/responsive.css">
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/skins/orange.css"><!-- skin color -->
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/responsive.css">
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/blog.css"><!-- blog stylesheet -->
+      <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pjstyle.css">
     {% endblock %}
 
     <!-- IE Fix for HTML5 Tags -->
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    {% endblock %}
-  </head>
-  <body>
-    {# HEADER #}
-    <div class="row">
-      <div class="four columns">
-        <div class="logo">
-          <a href="{{ SITEURL }}/">
-            <h4>{{ SITENAME }}</h4>
-          </a>
-        </div>
-      </div>
-      <div class="eight columns noleftmarg">
-        <nav id="nav-wrap">
-        <ul class="nav-bar sf-menu">
-          {% for title, link in MENUITEMS %}
-            <li class="active"><a href="{{ link }}">{{ title }}</a></li>
+  {% endblock %}
+</head>
+<body>
+{# HEADER #}
+<div class="row">
+  <div class="four columns">
+    <div class="logo">
+      <a href="{{ SITEURL }}/">
+        <h4>{{ SITENAME }}</h4>
+      </a>
+    </div>
+  </div>
+  <div class="eight columns noleftmarg">
+    <nav id="nav-wrap">
+      <ul class="nav-bar sf-menu">
+        {% for title, link in MENUITEMS %}
+          <li class="active"><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in PAGES %}
+            <li{% if p == page %} class="current"{% endif %}>
+              <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+            </li>
           {% endfor %}
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {% for p in PAGES %}
-              <li{% if p == page %} class="current"{% endif %}>
-                <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+        {% else %}
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="current"{% endif %}>
+                <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
               </li>
             {% endfor %}
-          {% else %}
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-              {% for cat, null in categories %}
-                <li{% if cat == category %} class="current"{% endif %}>
-                  <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
-                </li>
-              {% endfor %}
-            {% endif %}
           {% endif %}
-        </ul>
-        </nav>
-      </div>
-    </div>
-    <div class="clear"></div>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="clear"></div>
 
-    {# ######### #}
-    {# SUBHEADER #}
-    {# ######### #}
-    <div id="subheader">
-      <div class="row">
-        {% block subheader %}
-          <div class="twelve columns">
-            <p class="left">{% block breadcrumbs %}{% endblock %}</p>
-            <p class="right">{% block subheader_right %}{% endblock %}</p>
-          </div>
+{# ######### #}
+{# SUBHEADER #}
+{# ######### #}
+<div id="subheader">
+  <div class="row">
+    {% block subheader %}
+      <div class="twelve columns">
+        <p class="left">
+          {% block breadcrumbs %}
+            <a href="{{ SITEURL }}">Blog</a>
+          {% endblock %}
+        </p>
+        <p class="right">{% block subheader_right %}{% endblock %}</p>
+      </div>
+    {% endblock %}
+  </div>
+</div>
+<div class="hr"></div>
+
+{# ####### #}
+{# CONTENT #}
+{# ####### #}
+{% block page %}
+  <div class="row">
+    <div class="twelve columns noleftmargin">
+      <div class="eight columns">
+        {% block content %}{% endblock %}
+      </div>
+      <div class="four columns">
+        {% block sidebar %}
+          {% if categories %}
+            <h6 class="sidebartitle">CATEGORIES</h6>
+            {% for category, articles in categories %}
+              <a href="{{ SITEURL }}/{{ category.url }}" class="tags">{{ category }}</a>
+            {% endfor %}
+            <br class="clear"/>
+          {% endif %}
+
+          {% if tag_cloud %}
+            <h6 class="sidebartitle">TAGS</h6>
+            {% for tag in tag_cloud %}
+              <a href="{{ SITEURL }}/{{ tag.0.url }}" class="tags">{{ tag.0 }}</a>
+            {% endfor %}
+            <br class="clear"/>
+          {% endif %}
+
+          {% for item in articles if article is defined and item.category == article.category and item != article %}
+            {% if loop.first %}
+              <h6 class="sidebartitle">RELATED POSTS</h6>
+            {% endif %}
+            <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}" style="color: inherit;">
+              <p>{{ item.date.strftime("%d %b %Y") }}</p>
+              <p>{{ item.summary }}</p>
+            </a>
+          {% endfor %}
         {% endblock %}
       </div>
     </div>
-    <div class="hr"></div>
+  </div>
+{% endblock %}
 
-    {# ####### #}
-    {# CONTENT #}
-    {# ####### #}
-    {% block content %}{% endblock %}
-    <div class="hr"></div>
-
-    <!-- TWITTER
-    ================================================== -->
-    <div class="tweetarea">
-      <div class="tweettext">
-        <div class="row">
-          <div class="twelve columns">
-            <div class="tweet">
-            </div>
-          </div>
+{#
+<!-- TWITTER
+================================================== -->
+  <div class="hr"></div>
+<div class="hr"></div>
+<div class="tweetarea">
+  <div class="tweettext">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="tweet">
         </div>
       </div>
     </div>
+  </div>
+</div>
+ #}
 
-    <!-- FOOOTER 
-    ================================================== -->
-    <div id="footer">
-      <footer class="row">
-      <p class="back-top floatright">
+<!-- FOOOTER
+================================================== -->
+<div id="footer">
+  <footer class="row">
+    <p class="back-top floatright">
       <a href="#top"><span></span></a>
-      </p>
-      <div class="four columns">
-        <h1>Chi sono</h1>
-        Sono un ingegnere informatico specializzato in ingegneria del software e questo è il mio portfolio online. Su questo sito troverete informazioni su di me, sui miei lavori e su come contattarmi per richiedere la mia consulenza.
-      </div>
-      <div class="four columns">
-        <h1>SOCIAL</h1>
-        {% for title, url in SOCIAL %}
-          <a href="{{ url }}" target="_blank">
-            <div class="social {{ title }}">
-            </div>
-          </a>
-        {% endfor %}
-      </div>
-      <div class="four columns">
-        <h1 class="newsmargin">CONTATTI</h1>
-        <ul class="contact_details">
-          <li><i class="fa fa-envelope-o"></i> pj80.forums@gmail.com</li>
-          <li><i class="fa fa-phone-square"></i> +39 328 72 77 333</li>
-          <li><i class="fa fa-home"></i> Roma</li>
-        </ul>
-      </div>
-      </footer>
+    </p>
+    <div class="four columns">
+      <h1>ABOUT ME</h1>
+      I'm a computer engineer focused on software engineering and that is my tech blog. <br/>
+      On this blog you can find my technology notes and you can navigate my projects and works.
     </div>
-    <div class="copyright">
-      <div class="row">
-        <div class="six columns">
-          &copy;<span class="small"> Copyright 2015 Piergiorgio Faraglia</span>
-        </div>
-        <div class="six columns">
-          <span class="small floatright"><a href="">Home</a></span>&nbsp;&nbsp;&nbsp;
-          <span class="small floatright"><a href="">Chi sono</a></span>&nbsp;&nbsp;&nbsp;
-          <span class="small floatright"><a href="">Contatti</a></span>;
-        </div>
-      </div>
+    <div class="four columns">
+      <h1>SOCIAL</h1>
+      {% for title, url in SOCIAL %}
+        <a href="{{ url }}" target="_blank">
+          <div class="social {{ title }}">
+          </div>
+        </a>
+      {% endfor %}
     </div>
+    <div class="four columns">
+      <h1>CONTACTS</h1>
+      <ul class="contact_details">
+        <li><i class="fa fa-envelope-o"></i> pj80.forums@gmail.com</li>
+        <li><i class="fa fa-phone-square"></i> +39 328 72 77 333</li>
+        <li><i class="fa fa-home"></i> Rome</li>
+      </ul>
+    </div>
+  </footer>
+</div>
+<div class="copyright">
+  <div class="row">
+    <div class="six columns">
+      &copy;<span class="small"> Copyright 2015 Piergiorgio Faraglia</span>
+    </div>
+    <div class="six columns">
+      <span class="small floatright"><a href="{{ MENUITEMS.0.1 }}">About</a></span>;
+    </div>
+  </div>
+</div>
 
-    {% block javascripts %}
-    <script src="{{ SITEURL }}/theme/js/foundation.min.js"></script>
-    <script src="{{ SITEURL }}/theme/js/formvalidation.js"></script>
-    <script src="{{ SITEURL }}/theme/js/jquery.cycle.js"></script>
-    <script src="{{ SITEURL }}/theme/js/app.js"></script>
-    <script src="{{ SITEURL }}/theme/js/modernizr.foundation.js"></script>
-    <script src="{{ SITEURL }}/theme/js/slidepanel.js"></script>
-    <script src="{{ SITEURL }}/theme/js/scrolltotop.js"></script>
-    <script src="{{ SITEURL }}/theme/js/hoverIntent.js"></script>
-    <script src="{{ SITEURL }}/theme/js/superfish.js"></script>
-    <script src="{{ SITEURL }}/theme/js/responsivemenu.js"></script>
-    <script src="{{ SITEURL }}/theme/js/jquery.tweet.js"></script>
-      {#
+{% block javascripts %}
+  <script src="{{ SITEURL }}/theme/js/foundation.min.js"></script>
+  <script src="{{ SITEURL }}/theme/js/formvalidation.js"></script>
+  <script src="{{ SITEURL }}/theme/js/jquery.cycle.js"></script>
+  <script src="{{ SITEURL }}/theme/js/app.js"></script>
+  <script src="{{ SITEURL }}/theme/js/modernizr.foundation.js"></script>
+  <script src="{{ SITEURL }}/theme/js/slidepanel.js"></script>
+  <script src="{{ SITEURL }}/theme/js/scrolltotop.js"></script>
+  <script src="{{ SITEURL }}/theme/js/hoverIntent.js"></script>
+  <script src="{{ SITEURL }}/theme/js/superfish.js"></script>
+  <script src="{{ SITEURL }}/theme/js/responsivemenu.js"></script>
+  <script src="{{ SITEURL }}/theme/js/jquery.tweet.js"></script>
+  {#
     <script src="{{ SITEURL }}/theme/js/twitterusername.js"></script>
        #}
-    {% endblock %}
-
-  </body>
+{% endblock %}
+</body>
 </html>
