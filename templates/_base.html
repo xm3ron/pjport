@@ -13,6 +13,31 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width"/>
 
+    {% if FEED_ALL_ATOM %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+    {% endif %}
+    {% if FEED_ATOM %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+      <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+      <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+      <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+      <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+    {% endif %}
+
     {% block stylesheets %}
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
       <link rel="stylesheet" href="{{ SITEURL }}/theme/css/skins/orange.css"><!-- skin color -->
@@ -117,7 +142,7 @@
             {% endif %}
             <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}" style="color: inherit;">
               <strong>{{ item.title }}</strong>
-              <p>{{ item.summary }}</p>
+              {{ item.summary }}
             </a>
           {% endfor %}
         {% endblock %}
@@ -151,9 +176,9 @@
       <a href="#top"><span></span></a>
     </p>
     <div class="four columns">
-      <h1>ABOUT ME</h1>
-      I'm a computer engineer focused on software engineering and that is my tech blog. <br/>
-      On this blog you can find my technology notes and you can navigate my projects and works.
+      {% if ABOUT_ME %}
+      <h1>ABOUT ME</h1>{{ ABOUT_ME }}
+      {% endif %}
     </div>
     <div class="four columns">
       <h1>SOCIAL</h1>
@@ -167,9 +192,9 @@
     <div class="four columns">
       <h1>CONTACTS</h1>
       <ul class="contact_details">
-        <li><i class="fa fa-envelope-o"></i> pj80.forums@gmail.com</li>
-        <li><i class="fa fa-phone-square"></i> +39 328 72 77 333</li>
-        <li><i class="fa fa-home"></i> Rome</li>
+        <li><i class="fa fa-envelope-o"></i> {{ CONTACT_EMAIL }}</li>
+        <li><i class="fa fa-phone-square"></i> {{ CONTACT_PHONE }}</li>
+        <li><i class="fa fa-home"></i> {{ CONTACT_CITY }}</li>
       </ul>
     </div>
   </footer>
@@ -177,10 +202,10 @@
 <div class="copyright">
   <div class="row">
     <div class="six columns">
-      &copy;<span class="small"> Copyright 2015 Piergiorgio Faraglia</span>
+      &copy;<span class="small"> Copyright 2015 {{ AUTHOR }}</span>
     </div>
     <div class="six columns">
-      <span class="small floatright"><a href="{{ MENUITEMS.0.1 }}">About</a></span>;
+      <span class="small floatright"><a href="{{ MENUITEMS.0.1 }}">{{ MENUITEMS.0.0 }}</a></span>;
     </div>
   </div>
 </div>
