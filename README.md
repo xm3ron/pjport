@@ -5,6 +5,7 @@
 ## Worth mentioning files
 
 * pelicanconf.py-sample.py contains the variables used on theme. Use this reference to build your own configuration file.
+* static/css/skins: you can find css style colors to change default theme color.
 
 ## Screenshot
 
