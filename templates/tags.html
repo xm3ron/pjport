@@ -4,9 +4,8 @@
 
 {% block content %}
   <div class="sectiontitle">
-    <h4>Categories</h4>
+    <h4>Tags</h4>
   </div>
-    <h1>Tags for {{ SITENAME }}</h1>
     {%- for tag, articles in tags|sort %}
         <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
     {% endfor %}
