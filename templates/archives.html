@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+
+{% block breadcrumbs %}
+  {{ super() }} / Archives
+{% endblock %}
+
+{% block content %}
+{% for article in dates %}
+  <div class="circledate">
+    <div class="textcircle">{{ article.locale_date }}</div>
+  </div>
+  <h4><a href="{{ SITEURL }}/{{ article.url }}" title="" style="color: inherit;">{{ article.title }}</a>  <a class="comments" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> {# <span class="comments">3 comments</span> #}</h4>
+  <div class="dots blogdots"></div>
+  {{ article.summary }}
+  <a href="{{ SITEURL }}/{{ article.url }}" style="float:right;">Read more</a>
+  <br>
+  <div class="hr"></div>
+{% endfor %}
+{% endblock %}

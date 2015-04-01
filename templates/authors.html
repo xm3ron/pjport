@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ SITENAME }} - Authors{% endblock %}
+
+{% block breadcrumbs %}
+  {{ super() }} / Authors
+{% endblock %}
+
+{% block content %}
+  {%- for author, articles in authors|sort %}
+  <div class="panel">
+    <div class="avatar">
+      <img src="{{ articles.0.author_gravatar }}" alt="{{ articles.0.author_gravatar }}">
+    </div>
+    <h5 class="left"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a> ({{ articles|count }}) </h5>
+    <div class="right">
+      {% for title, url in SOCIAL %}
+        <a href="{{ url }}" target="_blank">
+          <div class="social {{ title }}">
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <p class="clear authortext"></p>
+  </div>
+  {% endfor %}
+{% endblock %}

@@ -116,7 +116,7 @@
               <h6 class="sidebartitle">RELATED POSTS</h6>
             {% endif %}
             <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}" style="color: inherit;">
-              <p>{{ item.date.strftime("%d %b %Y") }}</p>
+              <strong>{{ item.title }}</strong>
               <p>{{ item.summary }}</p>
             </a>
           {% endfor %}
