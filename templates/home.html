@@ -5,6 +5,17 @@
   <link rel="stylesheet" href="/theme/css/homepage.css">
 {% endblock %}
 
+{% block subheader %}
+  <div class="noslide">
+    <h1>{{ _('home-subheader-title')|title }}</h1>
+    <h3>{{ _('home-subheader-body') }}</h3>
+    <div class="minipause"></div><br/>
+    <a href="{{ _('home-subheader-cta-href') }}" class="clear actbutton">
+      {{ _('home-subheader-cta-body')|upper }}
+    </a>
+  </div>
+{% endblock %}
+
 {% block page %}
 <div class="row">
   <div class="twelve columns noleftmargin">

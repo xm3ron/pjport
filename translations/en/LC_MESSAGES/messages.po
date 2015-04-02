@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-04-02 12:20+0200\n"
+"POT-Creation-Date: 2015-04-02 17:08+0200\n"
 "PO-Revision-Date: 2015-04-02 12:12+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -17,34 +17,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: templates/_base.html:124
+#: templates/_base.html:141
 msgid "sidebar-categories-title"
 msgstr "categories"
 
-#: templates/_base.html:132
+#: templates/_base.html:149
 msgid "sidebar-tags-title"
 msgstr "tags"
 
-#: templates/_base.html:141
+#: templates/_base.html:158
 msgid "sidebar-related-posts-title"
 msgstr "related posts"
 
-#: templates/_base.html:179
+#: templates/_base.html:196
 msgid "footer-about-me-title"
 msgstr "about me"
 
-#: templates/_base.html:180
+#: templates/_base.html:197
 msgid "footer-about-me-body"
 msgstr ""
 "I''m Piergiorgio Faraglia a computer engineer focused on software "
 "engineering and that is my tech blog. On this blog you can find my "
 "technology notes and you can navigate my projects and works"
 
-#: templates/_base.html:183
+#: templates/_base.html:200
 msgid "footer-social-title"
 msgstr "social"
 
-#: templates/_base.html:192
+#: templates/_base.html:209
 msgid "footer-contacts-title"
 msgstr "contacts"
+
+#: templates/home.html:10
+msgid "home-subheader-title"
+msgstr "computer engineer"
+
+#: templates/home.html:11
+msgid "home-subheader-body"
+msgstr "design and development of static and dynamic web sites, e-commerce, systems software"
+
+#: templates/home.html:13
+msgid "home-subheader-cta-href"
+msgstr "/en/contacts.html"
+
+#: templates/home.html:14
+msgid "home-subheader-cta-body"
+msgstr "contact me"
 
