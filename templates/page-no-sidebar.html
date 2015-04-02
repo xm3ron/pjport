@@ -6,6 +6,10 @@
   {{ page.title|upper }}
 {% endblock %}
 
-{% block content %}
-  {{ page.content }}
+{% block page %}
+  <div class="row">
+    <div class="twelve columns noleftmargin">
+      {{ page.content }}
+    </div>
+  </div>
 {% endblock %}
