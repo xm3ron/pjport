@@ -71,19 +71,36 @@
         {% endfor %}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in PAGES %}
-            <li{% if p == page %} class="current"{% endif %}>
+            <li>
               <a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
             </li>
           {% endfor %}
         {% else %}
           {% if DISPLAY_CATEGORIES_ON_MENU %}
             {% for cat, null in categories %}
-              <li{% if cat == category %} class="current"{% endif %}>
+              <li>
                 <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
               </li>
             {% endfor %}
           {% endif %}
         {% endif %}
+
+        {% if DEFAULT_LANG != 'it' %}
+          <li>
+            <a href="/">
+              <img class="flag" src="/theme/images/flags/it.png" />
+            </a>
+          </li>
+        {% endif %}
+
+        {% if DEFAULT_LANG != 'en' %}
+          <li>
+          <a href="/en" class="flag-lang-en">
+            <img class="flag" src="/theme/images/flags/en.png" />
+          </a>
+          </li>
+        {% endif %}
+
       </ul>
     </nav>
   </div>
