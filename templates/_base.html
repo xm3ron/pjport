@@ -121,7 +121,7 @@
       <div class="four columns">
         {% block sidebar %}
           {% if categories %}
-            <h6 class="sidebartitle">CATEGORIES</h6>
+            <h6 class="sidebartitle">{{ _('sidebar-categories-title')|upper }}</h6>
             {% for category, articles in categories %}
               <a href="{{ SITEURL }}/{{ category.url }}" class="tags">{{ category }}</a>
             {% endfor %}
@@ -129,7 +129,7 @@
           {% endif %}
 
           {% if tag_cloud %}
-            <h6 class="sidebartitle">TAGS</h6>
+            <h6 class="sidebartitle">{{ _('sidebar-tags-title')|upper }}</h6>
             {% for tag in tag_cloud %}
               <a href="{{ SITEURL }}/{{ tag.0.url }}" class="tags">{{ tag.0 }}</a>
             {% endfor %}
@@ -138,7 +138,7 @@
 
           {% for item in articles if article is defined and item.category == article.category and item != article %}
             {% if loop.first %}
-              <h6 class="sidebartitle">RELATED POSTS</h6>
+              <h6 class="sidebartitle">{{ _('sidebar-related-posts-title')|upper }}</h6>
             {% endif %}
             <a href="{{ SITEURL }}/{{ item.url }}" title="{{ item.title|striptags }}" style="color: inherit;">
               <strong>{{ item.title }}</strong>
