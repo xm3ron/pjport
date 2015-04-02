@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <link rel="stylesheet" href="/theme/css/homepage.css">
+{% endblock %}
+
+{% block page %}
+<div class="row">
+  <div class="twelve columns noleftmargin">
+    {{ page.content }}
+  </div>
+</div>
+{% endblock %}
