@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-04-03 11:31+0200\n"
+"POT-Creation-Date: 2015-04-03 12:45+0200\n"
 "PO-Revision-Date: 2015-04-02 12:12+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -17,36 +17,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: templates/_base.html:141
+#: templates/_base.html:147
 msgid "sidebar-categories-title"
 msgstr "categories"
 
-#: templates/_base.html:149
+#: templates/_base.html:155
 msgid "sidebar-tags-title"
 msgstr "tags"
 
-#: templates/_base.html:158
+#: templates/_base.html:164
 msgid "sidebar-related-posts-title"
 msgstr "related posts"
 
-#: templates/_base.html:180
+#: templates/_base.html:186
 msgid "footer-about-me-title"
 msgstr "about me"
 
-#: templates/_base.html:181
+#: templates/_base.html:187
 msgid "footer-about-me-body"
 msgstr ""
-"I''m Piergiorgio Faraglia a computer engineer focused on software "
+"I'm Piergiorgio Faraglia a computer engineer focused on software "
 "engineering and that is my tech blog. On this blog you can find my "
 "technology notes and you can navigate my projects and works"
 
-#: templates/_base.html:184
+#: templates/_base.html:190
 msgid "footer-social-title"
 msgstr "social"
 
-#: templates/_base.html:193
+#: templates/_base.html:199
 msgid "footer-contacts-title"
 msgstr "contacts"
+
+#: templates/article.html:39
+msgid "author"
+msgstr "author"
 
 #: templates/home.html:10
 msgid "home-subheader-title"
@@ -72,7 +76,9 @@ msgstr "Do you hava a project in mind?"
 
 #: templates/page.html:16
 msgid "sidebar-contact-form-body"
-msgstr "provide some preliminary information and I will contact you as soon as possible."
+msgstr ""
+"provide some preliminary information and I will contact you as soon as "
+"possible."
 
 #: templates/page.html:19
 msgid "sidebar-contact-form-success-message"

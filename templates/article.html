@@ -36,7 +36,7 @@
     <div class="avatar">
       <img src="{{ article.author_gravatar }}" alt="{{ author_gravatar }}">
     </div>
-    <h5 class="left">AUTHOR: {{ article.author }} </h5>
+    <h5 class="left">{{ _('author')|upper }}: {{ article.author }} </h5>
     <div class="right">
       {% for title, url in SOCIAL %}
         <a href="{{ url }}" target="_blank">

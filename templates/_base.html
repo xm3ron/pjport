@@ -66,9 +66,11 @@
   <div class="eight columns noleftmarg">
     <nav id="nav-wrap">
       <ul class="nav-bar sf-menu">
+
         {% for title, link in MENUITEMS %}
-          <li class="active"><a href="{{ link }}">{{ title }}</a></li>
+          <li><a href="{{ link }}">{{ title|capitalize }}</a></li>
         {% endfor %}
+
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in PAGES %}
             <li>
@@ -84,6 +86,10 @@
             {% endfor %}
           {% endif %}
         {% endif %}
+
+        <li>
+          <a href="{{ SITEURL }}/{{ BLOG_RELURL }}">{{ BLOG_NAME }}</a>
+        </li>
 
         {% if DEFAULT_LANG != 'it' %}
           <li>
@@ -116,7 +122,7 @@
       <div class="twelve columns">
         <p class="left">
           {% block breadcrumbs %}
-            <a href="{{ SITEURL }}">Blog</a>
+            <a href="{{ SITEURL }}">{{ BLOG_NAME }}</a>
           {% endblock %}
         </p>
         <p class="right">{% block subheader_right %}{% endblock %}</p>
