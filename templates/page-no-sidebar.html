@@ -6,10 +6,22 @@
   {{ page.title|upper }}
 {% endblock %}
 
+{% block stylesheets %}
+  {{ super() }}
+  <link rel="stylesheet" href="/theme/css/prettyphoto.css"><!-- for gallery -->
+{% endblock %}
+
 {% block page %}
   <div class="row">
     <div class="twelve columns noleftmargin">
       {{ page.content }}
     </div>
   </div>
+{% endblock %}
+
+{% block javascripts %}
+  {{ super() }}
+  <script src="/theme/js/jquery.isotope.min.js"></script>
+  <script src="/theme/js/jquery.prettyPhoto.js"></script>
+  <script src="/theme/js/custom.js"></script>
 {% endblock %}
