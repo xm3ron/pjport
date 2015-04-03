@@ -39,12 +39,12 @@
     {% endif %}
 
     {% block stylesheets %}
-      <link rel="stylesheet" href="/theme/css/style.css">
-      <link rel="stylesheet" href="/theme/css/skins/orange.css"><!-- skin color -->
-      <link rel="stylesheet" href="/theme/css/responsive.css">
-      <link rel="stylesheet" href="/theme/css/font-awesome.min.css">
-      <link rel="stylesheet" href="/theme/css/blog.css"><!-- blog stylesheet -->
-      <link rel="stylesheet" href="/theme/css/pjstyle.css">
+      <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/style.css">
+      <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/skins/orange.css"><!-- skin color -->
+      <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/responsive.css">
+      <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/blog.css"><!-- blog stylesheet -->
+      <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/pjstyle.css">
     {% endblock %}
 
     <!-- IE Fix for HTML5 Tags -->
@@ -217,19 +217,19 @@
 </div>
 
 {% block javascripts %}
-  <script src="/theme/js/foundation.min.js"></script>
-  <script src="/theme/js/formvalidation.js"></script>
-  <script src="/theme/js/jquery.cycle.js"></script>
-  <script src="/theme/js/app.js"></script>
-  <script src="/theme/js/modernizr.foundation.js"></script>
-  <script src="/theme/js/slidepanel.js"></script>
-  <script src="/theme/js/scrolltotop.js"></script>
-  <script src="/theme/js/hoverIntent.js"></script>
-  <script src="/theme/js/superfish.js"></script>
-  <script src="/theme/js/responsivemenu.js"></script>
-  <script src="/theme/js/jquery.tweet.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/foundation.min.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/formvalidation.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/jquery.cycle.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/app.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/modernizr.foundation.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/slidepanel.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/scrolltotop.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/hoverIntent.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/superfish.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/responsivemenu.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/jquery.tweet.js"></script>
   {#
-    <script src="{{ SITEURL }}/theme/js/twitterusername.js"></script>
+    <script src="{{ THEME_BASEURL }}/theme/js/twitterusername.js"></script>
        #}
 {% endblock %}
 

@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
   {{ super() }}
-  <link rel="stylesheet" href="/theme/css/homepage.css">
+  <link rel="stylesheet" href="{{ THEME_BASEURL }}/theme/css/homepage.css">
 {% endblock %}
 
 {% block subheader %}
@@ -26,5 +26,5 @@
 
 {% block javascripts %}
   {{ super() }}
-  <script src="/theme/js/jquery.carouFredSel-6.0.5-packed.js"></script>
+  <script src="{{ THEME_BASEURL }}/theme/js/jquery.carouFredSel-6.0.5-packed.js"></script>
 {% endblock %}
