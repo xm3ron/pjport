@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-04-02 17:08+0200\n"
+"POT-Creation-Date: 2015-04-03 11:31+0200\n"
 "PO-Revision-Date: 2015-04-02 12:11+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: it <LL@li.org>\n"
@@ -29,11 +29,11 @@ msgstr "tags"
 msgid "sidebar-related-posts-title"
 msgstr "post correlati"
 
-#: templates/_base.html:196
+#: templates/_base.html:180
 msgid "footer-about-me-title"
 msgstr "chi sono"
 
-#: templates/_base.html:197
+#: templates/_base.html:181
 msgid "footer-about-me-body"
 msgstr ""
 "Sono Piergiorgio Faraglia ingegnere informatico specializzato in "
@@ -41,11 +41,11 @@ msgstr ""
 "lavori, su come contattarmi, e articoli in ambito tecnologico che spero "
 "di siano di aiuto."
 
-#: templates/_base.html:200
+#: templates/_base.html:184
 msgid "footer-social-title"
 msgstr "social"
 
-#: templates/_base.html:209
+#: templates/_base.html:193
 msgid "footer-contacts-title"
 msgstr "contatti"
 
@@ -55,7 +55,9 @@ msgstr "ingegnere informatico"
 
 #: templates/home.html:11
 msgid "home-subheader-body"
-msgstr "progettazione e sviluppo di siti web statici, dinamici, e-commerce, e software gestionali."
+msgstr ""
+"progettazione e sviluppo di siti web statici, dinamici, e-commerce, e "
+"software gestionali."
 
 #: templates/home.html:13
 msgid "home-subheader-cta-href"
@@ -64,4 +66,32 @@ msgstr "/contatti.html"
 #: templates/home.html:14
 msgid "home-subheader-cta-body"
 msgstr "contattami"
+
+#: templates/page.html:15
+msgid "sidebar-contact-form-title"
+msgstr "hai un progetto in mente?"
+
+#: templates/page.html:16
+msgid "sidebar-contact-form-body"
+msgstr "fornisci alcune informazioni preliminari e ti contatterò al più presto."
+
+#: templates/page.html:19
+msgid "sidebar-contact-form-success-message"
+msgstr "Il messaggio è stato inviato!"
+
+#: templates/page.html:24
+msgid "field-name-placeholder"
+msgstr "nome"
+
+#: templates/page.html:25
+msgid "field-email-placeholder"
+msgstr "email"
+
+#: templates/page.html:26
+msgid "field-project-placeholder"
+msgstr "descrivi il tuo progetto"
+
+#: templates/page.html:27
+msgid "submit-send"
+msgstr "invia"
 

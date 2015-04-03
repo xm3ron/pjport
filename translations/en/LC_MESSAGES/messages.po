@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-04-02 17:08+0200\n"
+"POT-Creation-Date: 2015-04-03 11:31+0200\n"
 "PO-Revision-Date: 2015-04-02 12:12+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -29,22 +29,22 @@ msgstr "tags"
 msgid "sidebar-related-posts-title"
 msgstr "related posts"
 
-#: templates/_base.html:196
+#: templates/_base.html:180
 msgid "footer-about-me-title"
 msgstr "about me"
 
-#: templates/_base.html:197
+#: templates/_base.html:181
 msgid "footer-about-me-body"
 msgstr ""
 "I''m Piergiorgio Faraglia a computer engineer focused on software "
 "engineering and that is my tech blog. On this blog you can find my "
 "technology notes and you can navigate my projects and works"
 
-#: templates/_base.html:200
+#: templates/_base.html:184
 msgid "footer-social-title"
 msgstr "social"
 
-#: templates/_base.html:209
+#: templates/_base.html:193
 msgid "footer-contacts-title"
 msgstr "contacts"
 
@@ -54,7 +54,9 @@ msgstr "computer engineer"
 
 #: templates/home.html:11
 msgid "home-subheader-body"
-msgstr "design and development of static and dynamic web sites, e-commerce, systems software"
+msgstr ""
+"design and development of static and dynamic web sites, e-commerce, "
+"systems software"
 
 #: templates/home.html:13
 msgid "home-subheader-cta-href"
@@ -63,4 +65,32 @@ msgstr "/en/contacts.html"
 #: templates/home.html:14
 msgid "home-subheader-cta-body"
 msgstr "contact me"
+
+#: templates/page.html:15
+msgid "sidebar-contact-form-title"
+msgstr "Do you hava a project in mind?"
+
+#: templates/page.html:16
+msgid "sidebar-contact-form-body"
+msgstr "provide some preliminary information and I will contact you as soon as possible."
+
+#: templates/page.html:19
+msgid "sidebar-contact-form-success-message"
+msgstr "The message has been sent!"
+
+#: templates/page.html:24
+msgid "field-name-placeholder"
+msgstr "name"
+
+#: templates/page.html:25
+msgid "field-email-placeholder"
+msgstr "email address"
+
+#: templates/page.html:26
+msgid "field-project-placeholder"
+msgstr "describe your project or idea"
+
+#: templates/page.html:27
+msgid "submit-send"
+msgstr "send"
 
