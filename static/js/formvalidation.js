@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var name = $('input[name=name]');
 		var email = $('input[name=email]');
 		var regx = /^([a-z0-9_\-\.])+\@([a-z0-9_\-\.])+\.([a-z]{2,4})$/i;
-		var comment = $('textarea[name=comment]');
+		var comment = $('textarea[name=message]');
 		var returnError = false;
 		
 		//Simple validation to make sure user entered something
@@ -41,13 +41,15 @@ $(document).ready(function() {
 		
 		//organize the data
 		
-		var data = 'name=' + name.val() + '&email=' + email.val() + '&comment='  + encodeURIComponent(comment.val());
+		var data = 'name=' + name.val() + '&email=' + email.val() + '&message='  + encodeURIComponent(comment.val());
 
 		//disabled all the text fields
 		$('.text').attr('disabled','true');
 		
 		//show the loading sign
 		$('.loading').show();
+
+        console.log("eccomi");
 		
 		//start the ajax
 		$.ajax({
@@ -67,6 +69,7 @@ $(document).ready(function() {
 			
 			//success
 			success: function (html) {				
+                console.log(html);
 				//if contact.php returned 1/true (send mail success)
 				if (html==1) {
 				
@@ -77,7 +80,15 @@ $(document).ready(function() {
 					
 				//if contact.php returned 0/false (send mail failed)
 				} else alert('Sorry, unexpected error. Please try again later.');				
-			}		
+			},
+                      error: function(jqXHR, textStatus, errorThrown) 
+                                    {
+					//show the success message
+					$('.done').fadeIn('slow');
+					
+					$(".form").find('input[type=text], textarea').val("");
+                                                      console.log(errorThrown);
+                                                                 }
 		});
 		
 		//cancel the submit button default behaviours

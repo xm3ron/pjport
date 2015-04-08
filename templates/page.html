@@ -22,7 +22,8 @@
     <form id="contactform" action="{{ APIURL }}/sendmail" method="post">
       <input type="text" placeholder="{{ _('field-name-placeholder')|capitalize }} *" class="smoothborder" name="name">
       <input type="text" placeholder="{{ _('field-email-placeholder')|capitalize }} *" class="smoothborder" name="email">
-      <textarea placeholder="{{ _('field-project-placeholder')|capitalize }} *" rows="6" class="smoothborder" name="comment"></textarea>
+      <textarea placeholder="{{ _('field-project-placeholder')|capitalize }} *"
+        rows="6" class="smoothborder" name="message"></textarea>
       <input type="submit" value="{{ _('submit-send')|capitalize }}" class="readmore" id="submit">
     </form>
   </div>
