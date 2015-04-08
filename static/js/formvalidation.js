@@ -59,6 +59,8 @@ $(document).ready(function() {
 
 			//pass the data			
 			data: data,		
+
+            dataType: 'jsonp',
 			
 			//Do not cache the page
 			cache: false,
