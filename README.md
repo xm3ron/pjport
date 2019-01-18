@@ -9,4 +9,4 @@
 
 ## Screenshot
 
-![PjPort screenshot] (screenshot.png)
+![PjPort screenshot](screenshot.png "PjPort screenshot")
